@@ -8,6 +8,11 @@ const cors = require('cors');
 const socket = require("socket.io");
 
 app.use(cors())
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-133e9.web.app');
+  // Add other CORS headers as needed
+  next();
+});
 app.use(express.json())
 app.use("/api/auth/",userRoutes)
 app.use("/api/messages/",messageRouter)
