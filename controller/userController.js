@@ -2,9 +2,6 @@ const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
 
 module.exports.register = async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-133e9.web.app');
-  // Add other CORS headers as needed
-  next();
   try {
     const { username, email, password } = req.body;
     const usernameCheck = await User.findOne({ username });
@@ -27,9 +24,6 @@ module.exports.register = async (req, res, next) => {
 };
 
 module.exports.login = async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-133e9.web.app');
-  // Add other CORS headers as needed
-  next();
   try {
     const { username, email, password } = req.body;
     const user = await User.findOne({ username });
@@ -54,9 +48,6 @@ module.exports.login = async (req, res, next) => {
 };
 
 module.exports.setAvatar = async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-133e9.web.app');
-  // Add other CORS headers as needed
-  next();
     try {
       const userId = req.params.id;
       const avaterImage = req.body.image;
@@ -78,9 +69,6 @@ module.exports.setAvatar = async (req, res, next) => {
     }
   };
 module.exports.allUserRoute = async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-133e9.web.app');
-  // Add other CORS headers as needed
-  next();
     try {
       const userId = req.params.id;
       // console.log(userId)
